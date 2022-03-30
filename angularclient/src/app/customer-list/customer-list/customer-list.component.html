@@ -1,3 +1,8 @@
+<!--
+  In this template a table was created and has a column for each field 
+  for the customer table. 
+  Within the table body, the ngFor directive is implemented
+-->
 <div class="card my-5">
     <div class="card-body">
       <table class="table table-bordered table-striped">
@@ -24,7 +29,7 @@
             <td>{{ customer.zipCode }}</td>
             <td>{{ customer.gradeLevel }}</td>
             <td>{{ customer.topicId }}</td>
-            <td><a href="mailto:{{ customer.email }}">{{ customer.email }}</a></td>
+            <td>{{ customer.customerDescription }}</td>
           </tr>
         </tbody>
       </table>

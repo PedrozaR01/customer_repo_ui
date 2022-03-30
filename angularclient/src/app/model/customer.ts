@@ -1,3 +1,4 @@
+//class that serves as a model for the customer table
 export class Customer {
     customerId!: string;
     email!: string;

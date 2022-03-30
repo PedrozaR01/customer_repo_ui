@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { CustomerService } from './service/customer.service';
 import { CustomerListComponent } from './customer-list/customer-list/customer-list.component';
 import { CustomerFormComponent } from './customer-form/customer-form/customer-form.component';
+import { CustomerUpdateComponent } from './customer-update/customer-update.component';
+import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    CustomerUpdateComponent,
+    CustomerDeleteComponent
   ],
   imports: [
     BrowserModule,

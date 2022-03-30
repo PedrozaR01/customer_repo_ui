@@ -1,3 +1,7 @@
+<!--
+  here we create buttons that make use of the path declared in the app routing module.
+  It also uses a variable for title
+-->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -9,7 +13,13 @@
               <a routerLink="/customers" class="btn btn-info">List Customers</a>
                 </li>
             <li class="list-inline-item">
-              <a routerLink="/customer" class="btn btn-info">Add Customer</a>
+              <a routerLink="/addcustomer" class="btn btn-info">Add Customer</a>
+                </li>
+            <li class="list-inline-item">
+               <a routerLink="/updatecustomer" class="btn btn-info">Update Customer</a>
+                </li>
+            <li class="list-inline-item">
+               <a routerLink="/deletecustomer" class="btn btn-info">Delete Customer</a>
                 </li>
           </ul>
         </div>

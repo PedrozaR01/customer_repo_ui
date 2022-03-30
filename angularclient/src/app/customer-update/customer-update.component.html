@@ -1,20 +1,29 @@
 <!--
-  This is the html file which contains the form and inputs to create a customer
-  The ngSubmit directive calls the onSubmit method in the ts class of this component.
-  The ngForm alows angular to control the whole form, and keeps track of it with the
-  ngModel. The value of ngModel equals that of each customer's field.
+  This html file is similar to that where we create a customer
+  The diference is that we need to provide the customer id becase we are editing an existing customer.
+  The onSubmit method in the TS class has the update method called.
 -->
 <div class="card my-5">
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
-        
+        <div class="form-group">
+            <label for="customerid">Customer Id</label>
+            <input type="text" [(ngModel)]="customer.customerId" 
+              class="form-control" 
+              id="customerid" 
+              name="customerid" 
+              placeholder="Enter the existing custumer id"
+              required #customerid="ngModel">
+            <div [hidden]="!customerid.pristine" class="alert alert-danger">Email is required</div>
+          </div>
+
         <div class="form-group">
             <label for="email">Email</label>
             <input type="text" [(ngModel)]="customer.email" 
               class="form-control" 
               id="email" 
               name="email" 
-              placeholder="Enter your email address"
+              placeholder="Enter the new email address"
               required #email="ngModel">
             <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
           </div>
@@ -24,7 +33,7 @@
             class="form-control" 
             id="name" 
             name="name" 
-            placeholder="Enter your name"
+            placeholder="Enter the new name"
             required #name="ngModel">
             <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
         </div>
@@ -35,7 +44,7 @@
               class="form-control" 
               id="lastname" 
               name="lastname" 
-              placeholder="Enter your last name"
+              placeholder="Enter the new last name"
               required #lastname="ngModel">
           <div [hidden]="!lastname.pristine" class="alert alert-danger">Last name is required</div>
       </div>
@@ -46,7 +55,7 @@
             class="form-control" 
             id="zipcode" 
             name="zipcode" 
-            placeholder="Enter your zip code"
+            placeholder="Enter the new zip code"
             required #zipcode="ngModel">
         <div [hidden]="!zipcode.pristine" class="alert alert-danger">Zip Code is required</div>
         </div>
@@ -57,7 +66,7 @@
             class="form-control" 
             id="gradelevel" 
             name="gradelevel" 
-            placeholder="Enter Grade Level"
+            placeholder="Enter the new Grade Level"
             required #gradelevel="ngModel">
         <div [hidden]="!gradelevel.pristine" class="alert alert-danger">Grade Level is required</div>
         </div>
@@ -68,7 +77,7 @@
             class="form-control" 
             id="topicid" 
             name="topicid" 
-            placeholder="Enter Topic Id"
+            placeholder="Enter the new Topic Id"
             required #topicid="ngModel">
         <div [hidden]="!topicid.pristine" class="alert alert-danger">Customer Description is required</div>
         </div>
@@ -79,7 +88,7 @@
           class="form-control" 
           id="customerdescription" 
           name="customerdescription" 
-          placeholder="Enter Customer Description"
+          placeholder="Enter the new Customer Description"
           required #customerdescription="ngModel">
       <div [hidden]="!customerdescription.pristine" class="alert alert-danger">Customer Description is required</div>
       </div>
@@ -89,3 +98,4 @@
       </form>
     </div>
   </div>
+

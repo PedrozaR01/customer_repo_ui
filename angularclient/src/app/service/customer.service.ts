@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Customer } from '../model/customer';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';//libary that implements the http requests
+import { Customer } from 'src/app/model/customer';
+import { Observable } from 'rxjs'; //This returns instances of objects like customers, for example
 
-@Injectable()
+/*
+This service class makes the
+requests to the API at port 8080/customers.
+In other words, this class consumes the api created on Java.
+The syntax for Observable<any> could replace "any" to "Customers" 
+or whatever class we create.
+*/
+
+@Injectable() //this simply indicates that the service is created and injected via Angular's dependencies
 export class CustomerService {
 
   private customersUrl: string;

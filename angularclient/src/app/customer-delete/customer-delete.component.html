@@ -1,0 +1,26 @@
+<!--
+    Here the template just ask for and Id, the onSubmit method receives 
+    the id and makes the delete request with just said id
+
+-->
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
+        
+        <div class="form-group">
+            <label for="customerid">Customer Id to delete</label>
+            <input type="text" [(ngModel)]="customer.customerId" 
+              class="form-control" 
+              id="customerid" 
+              name="customerid" 
+              placeholder="Enter the existing id to delete customer"
+              required #customerid="ngModel">
+            <div [hidden]="!customerid.pristine" class="alert alert-danger">Existing id is required</div>
+          </div>
+        
+
+        <button type="submit" [disabled]="!customerForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
