@@ -1,0 +1,35 @@
+<!--
+  In this template a table was created and has a column for each field 
+  for the customer table. 
+  Within the table body, the ngFor directive is implemented
+-->
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Processor Intro</th>
+            <th scope="col">Supported Topics</th>
+            <th scope="col">Processor Grade Level</th>
+          </tr>
+        </thead>
+        <tbody>
+            <!-- the ngFor directive is a repeater, it helps
+            iterating over the contents of a variable, in this case, customers-->
+          <tr *ngFor="let processor of processors">
+            <td>{{ processor.processorId}}</td>
+            <td>{{ processor.email }}</td>
+            <td>{{ processor.firstName }}</td>
+            <td>{{ processor.lastName }}</td>
+            <td>{{ processor.processorIntro }}</td>
+            <td>{{ processor.supportedTopics }}</td>
+            <td>{{ processor.processorGradeLevel }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -9,6 +9,6 @@ export class AppComponent {
   title: string;
 
   constructor() {
-    this.title = 'API UI';
+    this.title = 'Customer Repo API UI';
   }
 }

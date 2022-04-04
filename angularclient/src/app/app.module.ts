@@ -5,10 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CustomerService } from './service/customer.service';
+import { ProcessorService } from './service/processor-service';
 import { CustomerListComponent } from './customer-list/customer-list/customer-list.component';
 import { CustomerFormComponent } from './customer-form/customer-form/customer-form.component';
 import { CustomerUpdateComponent } from './customer-update/customer-update.component';
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
+import { ProcessorListComponent } from './processor-list/processor-list.component';
+import { ProcessorFormComponent } from './processor-form/processor-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { CustomerDeleteComponent } from './customer-delete/customer-delete.compo
     CustomerListComponent,
     CustomerFormComponent,
     CustomerUpdateComponent,
-    CustomerDeleteComponent
+    CustomerDeleteComponent,
+    ProcessorListComponent,
+    ProcessorFormComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,7 @@ import { CustomerDeleteComponent } from './customer-delete/customer-delete.compo
     HttpClientModule,
     FormsModule
   ],
-  providers: [CustomerService],
+  providers: [CustomerService, ProcessorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

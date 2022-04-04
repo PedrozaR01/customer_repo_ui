@@ -64,12 +64,13 @@
 
         <div class="form-group">
             <label for="topicid">Topic Id</label>
-            <input type="text" [(ngModel)]="customer.topicId" 
+            <select [(ngModel)]="customer.topicId" 
             class="form-control" 
             id="topicid" 
             name="topicid" 
-            placeholder="Enter Topic Id"
             required #topicid="ngModel">
+          
+            </select>
         <div [hidden]="!topicid.pristine" class="alert alert-danger">Customer Description is required</div>
         </div>
 

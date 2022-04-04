@@ -1,0 +1,80 @@
+<!--
+  This is the html file which contains the form and inputs to create a customer
+  The ngSubmit directive calls the onSubmit method in the ts class of this component.
+  The ngForm alows angular to control the whole form, and keeps track of it with the
+  ngModel. The value of ngModel equals that of each customer's field.
+-->
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #processorForm="ngForm">
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" [(ngModel)]="processor.email" 
+              class="form-control" 
+              id="email" 
+              name="email" 
+              placeholder="Enter your email address"
+              required #email="ngModel">
+            <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
+          </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="processor.firstName" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="Enter your name"
+            required #name="ngModel">
+            <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" [(ngModel)]="processor.lastName" 
+              class="form-control" 
+              id="lastname" 
+              name="lastname" 
+              placeholder="Enter your last name"
+              required #lastname="ngModel">
+          <div [hidden]="!lastname.pristine" class="alert alert-danger">Last name is required</div>
+      </div>
+
+        <div class="form-group">
+            <label for="processorintro">Processor Intro</label>
+            <input type="text" [(ngModel)]="processor.processorIntro" 
+            class="form-control" 
+            id="processorintro" 
+            name="processorintro" 
+            placeholder="Enter Processor Intro"
+            required #processorintro="ngModel">
+        <div [hidden]="!processorintro.pristine" class="alert alert-danger">Processor Intro is required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="supportedtopics">Supported Topics</label>
+            <input type="text" [(ngModel)]="processor.supportedTopics" 
+            class="form-control" 
+            id="supportedtopics" 
+            name="supportedtopics" 
+            placeholder="Enter Supported Topics"
+            required #supportedtopics="ngModel">
+        <div [hidden]="!supportedtopics.pristine" class="alert alert-danger">A supported topic is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="processorgradelevel">Procesor Grade Level</label>
+          <input type="text" [(ngModel)]="processor.processorGradeLevel" 
+          class="form-control" 
+          id="processorgradelevel" 
+          name="processorgradelevel" 
+          placeholder="Enter Processor Grade Level"
+          required #processorgradelevel="ngModel">
+      <div [hidden]="!processorgradelevel.pristine" class="alert alert-danger">Grade Level is required</div>
+      </div>
+
+        <button type="submit" [disabled]="!processorForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>

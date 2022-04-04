@@ -24,6 +24,7 @@ export class CustomerService {
     return this.http.get(this.customersUrl);
   }
 
+  //yet to implement in the UI
   get(id: string): Observable<any> {
     return this.http.get(`${this.customersUrl}/${id}`);
   }
