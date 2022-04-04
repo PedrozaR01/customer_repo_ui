@@ -1,0 +1,36 @@
+<!--
+  This is the html file which contains the form and inputs to create a customer
+  The ngSubmit directive calls the onSubmit method in the ts class of this component.
+  The ngForm alows angular to control the whole form, and keeps track of it with the
+  ngModel. The value of ngModel equals that of each customer's field.
+-->
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #topicForm="ngForm">
+        
+        <div class="form-group">
+            <label for="topicname">Topic Name</label>
+            <input type="text" [(ngModel)]="topic.topicName" 
+              class="form-control" 
+              id="topicname" 
+              name="topicname" 
+              placeholder="Enter Topic Name"
+              required #topicname="ngModel">
+            <div [hidden]="!topicname.pristine" class="alert alert-danger">Topic Name is required</div>
+          </div>
+        <div class="form-group">
+          <label for="topicgradelevel">Topic Grade Level</label>
+          <input type="text" [(ngModel)]="topic.topicGradeLevel" 
+            class="form-control" 
+            id="topicgradelevel" 
+            name="topicgradelevel" 
+            placeholder="Enter Topic Grade Level"
+            required #topicgradelevel="ngModel">
+            <div [hidden]="!topicgradelevel.pristine" class="alert alert-danger">Topic Grade Level is required</div>
+        </div>
+
+        <button type="submit" [disabled]="!topicForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>

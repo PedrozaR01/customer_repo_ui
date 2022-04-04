@@ -6,12 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CustomerService } from './service/customer.service';
 import { ProcessorService } from './service/processor-service';
+import { TopicService } from './service/topic.service';
 import { CustomerListComponent } from './customer-list/customer-list/customer-list.component';
 import { CustomerFormComponent } from './customer-form/customer-form/customer-form.component';
 import { CustomerUpdateComponent } from './customer-update/customer-update.component';
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
 import { ProcessorListComponent } from './processor-list/processor-list.component';
 import { ProcessorFormComponent } from './processor-form/processor-form.component';
+import { TopicListComponent } from './topic-list/topic-list.component';
+import { TopicFormComponent } from './topic-form/topic-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { ProcessorFormComponent } from './processor-form/processor-form.componen
     CustomerUpdateComponent,
     CustomerDeleteComponent,
     ProcessorListComponent,
-    ProcessorFormComponent
+    ProcessorFormComponent,
+    TopicListComponent,
+    TopicFormComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,11 @@ import { ProcessorFormComponent } from './processor-form/processor-form.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [CustomerService, ProcessorService],
+  providers: [
+    CustomerService, 
+    ProcessorService,
+    TopicService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,27 @@
+<!--
+  In this template a table was created and has a column for each field 
+  for the customer table. 
+  Within the table body, the ngFor directive is implemented
+-->
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Topic Name</th>
+            <th scope="col">Topic Grade Level</th>
+          </tr>
+        </thead>
+        <tbody>
+            <!-- the ngFor directive is a repeater, it helps
+            iterating over the contents of a variable, in this case, customers-->
+          <tr *ngFor="let topic of topics">
+            <td>{{ topic.topicId}}</td>
+            <td>{{ topic.topicName }}</td>
+            <td>{{ topic.topicGradeLevel }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
