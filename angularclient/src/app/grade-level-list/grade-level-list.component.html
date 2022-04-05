@@ -1,6 +1,6 @@
 <!--
   In this template a table was created and has a column for each field 
-  for the customer table. 
+  for the grade level table. 
   Within the table body, the ngFor directive is implemented
 -->
 <div class="card my-5">
@@ -10,19 +10,17 @@
           <tr>
             <th scope="col">Action</th>
             <th scope="col">#</th>
-            <th scope="col">Topic Name</th>
-            <th scope="col">Topic Grade Level</th>
+            <th scope="col">Grade Level Name</th>
           </tr>
         </thead>
         <tbody>
             <!-- the ngFor directive is a repeater, it helps
-            iterating over the contents of a variable, in this case, customers-->
-          <tr *ngFor="let topic of topics">
-            <td><button type="submit"  (click)="deleteTopic(topic.topicId)"
+            iterating over the contents of a variable, in this case, gradelevels-->
+          <tr *ngFor="let gradelevel of gradelevels">
+            <td><button type="submit"  (click)="deleteGrade(gradelevel.gradeLevelId)"
               class="btn btn-info" style="background-color:red">Delete</button></td>
-            <td>{{ topic.topicId }}</td>
-            <td>{{ topic.topicName }}</td>
-            <td>{{ topic.topicGradeLevel }}</td>
+            <td>{{ gradelevel.gradeLevelId }}</td>
+            <td>{{ gradelevel.gradeLevelName }}</td>
           </tr>
         </tbody>
       </table>

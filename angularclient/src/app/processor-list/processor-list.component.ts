@@ -15,6 +15,10 @@ export class ProcessorListComponent implements OnInit {
 
    }
 
+   deleteProcessor(Id: string){
+    this.processorService.delete(Id).subscribe((success => {this.ngOnInit()}));
+  }
+
   ngOnInit(): void {
     this.processorService.list().subscribe(data => {
       this.processors = data;

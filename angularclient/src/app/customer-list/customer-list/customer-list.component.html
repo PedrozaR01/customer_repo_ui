@@ -8,6 +8,7 @@
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">Action</th>
             <th scope="col">#</th>
             <th scope="col">Email</th>
             <th scope="col">First Name</th>
@@ -22,6 +23,8 @@
             <!-- the ngFor directive is a repeater, it helps
             iterating over the contents of a variable, in this case, customers-->
           <tr *ngFor="let customer of customers">
+            <td><button type="submit"  (click)="deleteCustomer(customer.customerId)"
+              class="btn btn-info" style="background-color:red">Delete</button></td>
             <td>{{ customer.customerId }}</td>
             <td>{{ customer.email }}</td>
             <td>{{ customer.firstName }}</td>

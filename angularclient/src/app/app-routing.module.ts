@@ -8,6 +8,8 @@ import { ProcessorFormComponent } from './processor-form/processor-form.componen
 import { ProcessorListComponent } from './processor-list/processor-list.component';
 import { TopicFormComponent } from './topic-form/topic-form.component';
 import { TopicListComponent } from './topic-list/topic-list.component';
+import { GradeLevelFormComponent } from './grade-level-form/grade-level-form.component';
+import { GradeLevelListComponent } from './grade-level-list/grade-level-list.component';
 
 /*
 This module is responsible for all the routing, along with the path, it tells 
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: 'processors', component: ProcessorListComponent},
   { path: 'addprocessor', component: ProcessorFormComponent},
   { path: 'topics', component: TopicListComponent},
-  { path: 'addtopic', component: TopicFormComponent}
+  { path: 'addtopic', component: TopicFormComponent},
+  { path: 'gradelevel', component: GradeLevelListComponent},
+  { path: 'addgradelevel', component: GradeLevelFormComponent}
 ];
 
 @NgModule({

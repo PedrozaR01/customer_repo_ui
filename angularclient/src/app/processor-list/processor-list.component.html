@@ -1,6 +1,6 @@
 <!--
   In this template a table was created and has a column for each field 
-  for the customer table. 
+  for the processor table. 
   Within the table body, the ngFor directive is implemented
 -->
 <div class="card my-5">
@@ -8,6 +8,7 @@
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">Action</th>
             <th scope="col">#</th>
             <th scope="col">Email</th>
             <th scope="col">First Name</th>
@@ -19,8 +20,10 @@
         </thead>
         <tbody>
             <!-- the ngFor directive is a repeater, it helps
-            iterating over the contents of a variable, in this case, customers-->
+            iterating over the contents of a variable, in this case, processors-->
           <tr *ngFor="let processor of processors">
+            <td><button type="submit"  (click)="deleteProcessor(processor.processorId)"
+              class="btn btn-info" style="background-color:red">Delete</button></td>
             <td>{{ processor.processorId}}</td>
             <td>{{ processor.email }}</td>
             <td>{{ processor.firstName }}</td>

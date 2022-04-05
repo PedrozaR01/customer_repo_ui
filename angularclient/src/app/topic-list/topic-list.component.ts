@@ -13,6 +13,10 @@ export class TopicListComponent implements OnInit {
 
   constructor(private topicService: TopicService) { }
 
+  deleteTopic(Id: string){
+    this.topicService.delete(Id).subscribe((success => {this.ngOnInit()}));
+  }
+
   ngOnInit(): void {
     this.topicService.list().subscribe(data => {
       this.topics = data;

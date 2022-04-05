@@ -1,0 +1,26 @@
+<!--
+  This is the html file which contains the form and inputs to create a grade level
+  The ngSubmit directive calls the onSubmit method in the ts class of this component.
+  The ngForm alows angular to control the whole form, and keeps track of it with the
+  ngModel. The value of ngModel equals that of each grade level's field.
+-->
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #gradeForm="ngForm">
+        
+        <div class="form-group">
+            <label for="gradelevelname">Grade Level Name</label>
+            <input type="text" [(ngModel)]="gradelevel.gradeLevelName" 
+              class="form-control" 
+              id="gradelevelname" 
+              name="topigradelevelnamename" 
+              placeholder="Enter Grade Level Name"
+              required #gradelevelname="ngModel">
+            <div [hidden]="!gradelevelname.pristine" class="alert alert-danger">Grade Level Name is required</div>
+          </div>
+
+        <button type="submit" [disabled]="!gradeForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>

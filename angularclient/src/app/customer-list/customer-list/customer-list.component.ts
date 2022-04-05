@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from 'src/app/model/customer'; 
 import { CustomerService } from 'src/app/service/customer.service';
 /**
@@ -16,8 +17,15 @@ export class CustomerListComponent implements OnInit {
 
   customers!: Customer[];
 
-  constructor(private customerService: CustomerService) {
+  constructor(
+    private customerService: CustomerService,
+    private router: Router
+    ) {
 
+   }
+
+   deleteCustomer(Id: string){
+     this.customerService.delete(Id).subscribe((success => {this.ngOnInit()}));
    }
 
   ngOnInit(){
