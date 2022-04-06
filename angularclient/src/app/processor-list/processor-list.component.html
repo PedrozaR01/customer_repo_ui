@@ -25,7 +25,7 @@
             <td><button type="submit"  (click)="deleteProcessor(processor.processorId)"
               class="btn btn-info" style="background-color:red">Delete</button></td>
             <td>{{ processor.processorId}}</td>
-            <td>{{ processor.email }}</td>
+            <td><a routerLink="/updateprocessor/{{ processor.processorId}}">{{ processor.email }}</a>&nbsp;</td>
             <td>{{ processor.firstName }}</td>
             <td>{{ processor.lastName }}</td>
             <td>{{ processor.processorIntro }}</td>

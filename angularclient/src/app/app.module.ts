@@ -18,6 +18,7 @@ import { TopicListComponent } from './topic-list/topic-list.component';
 import { TopicFormComponent } from './topic-form/topic-form.component';
 import { GradeLevelListComponent } from './grade-level-list/grade-level-list.component';
 import { GradeLevelFormComponent } from './grade-level-form/grade-level-form.component';
+import { ProcessorUpdateComponent } from './processor-update/processor-update.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { GradeLevelFormComponent } from './grade-level-form/grade-level-form.com
     TopicListComponent,
     TopicFormComponent,
     GradeLevelListComponent,
-    GradeLevelFormComponent
+    GradeLevelFormComponent,
+    ProcessorUpdateComponent
   ],
   imports: [
     BrowserModule,

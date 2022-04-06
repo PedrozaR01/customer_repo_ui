@@ -1,0 +1,35 @@
+<!--
+  Here we can edit the fields of the processor
+-->
+<div class="card my-5">
+    <div class="card-body">
+      <div *ngIf="processor">
+        <h2>Update Processor</h2>
+        <div>
+          <p>
+         Email: <input [(ngModel)]="processor.email" class="form-control" placeholder="Email">
+          </p>
+                   
+          <p>
+         First Name: <input [(ngModel)]="processor.firstName" class="form-control" placeholder="First Name">
+          </p>
+
+          <p>
+            Last Name: <input [(ngModel)]="processor.lastName" class="form-control" placeholder="Last Name">
+          </p>
+          <p>
+            Processor Intro: <input [(ngModel)]="processor.processorIntro" class="form-control" placeholder="Processor Intro">
+          </p>
+
+          <p>
+            Supported Topics: <input [(ngModel)]="processor.supportedTopics" class="form-control" placeholder="Supported Topics">
+          </p>
+
+          <p>
+            Grade Level: <input [(ngModel)]="processor.processorGradeLevel" class="form-control" placeholder="Grade Level">
+          </p>
+        </div>
+        <button (click)="save()" class="btn btn-info">Save</button>
+      </div>
+    </div>
+  </div>

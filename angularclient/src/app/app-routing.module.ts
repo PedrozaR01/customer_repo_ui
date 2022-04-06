@@ -6,6 +6,7 @@ import { CustomerUpdateComponent } from './customer-update/customer-update.compo
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
 import { ProcessorFormComponent } from './processor-form/processor-form.component';
 import { ProcessorListComponent } from './processor-list/processor-list.component';
+import { ProcessorUpdateComponent } from './processor-update/processor-update.component';
 import { TopicFormComponent } from './topic-form/topic-form.component';
 import { TopicListComponent } from './topic-list/topic-list.component';
 import { GradeLevelFormComponent } from './grade-level-form/grade-level-form.component';
@@ -20,10 +21,11 @@ in the buttons.
 const routes: Routes = [
   { path: 'customers', component: CustomerListComponent },
   { path: 'addcustomer', component: CustomerFormComponent },
-  { path: 'updatecustomer', component: CustomerUpdateComponent},
+  { path: 'updatecustomer/:id', component: CustomerUpdateComponent},
   { path: 'deletecustomer', component: CustomerDeleteComponent},
   { path: 'processors', component: ProcessorListComponent},
   { path: 'addprocessor', component: ProcessorFormComponent},
+  { path: 'updateprocessor/:id', component: ProcessorUpdateComponent},
   { path: 'topics', component: TopicListComponent},
   { path: 'addtopic', component: TopicFormComponent},
   { path: 'gradelevel', component: GradeLevelListComponent},

@@ -1,101 +1,40 @@
 <!--
-  This html file is similar to that where we create a customer
-  The diference is that we need to provide the customer id becase we are editing an existing customer.
-  The onSubmit method in the TS class has the update method called.
+  Here we edit the customer fields
 -->
 <div class="card my-5">
     <div class="card-body">
-      <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
-        <div class="form-group">
-            <label for="customerid">Customer Id</label>
-            <input type="text" [(ngModel)]="customer.customerId" 
-              class="form-control" 
-              id="customerid" 
-              name="customerid" 
-              placeholder="Enter the existing custumer id"
-              required #customerid="ngModel">
-            <div [hidden]="!customerid.pristine" class="alert alert-danger">Email is required</div>
-          </div>
+      <div *ngIf="customer">
+        <h2>Update Customer</h2>
+        <div>
+          <p>
+         Email: <input [(ngModel)]="customer.email" class="form-control" placeholder="Email">
+          </p>
+                   
+          <p>
+         First Name: <input [(ngModel)]="customer.firstName" class="form-control" placeholder="First Name">
+          </p>
 
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" [(ngModel)]="customer.email" 
-              class="form-control" 
-              id="email" 
-              name="email" 
-              placeholder="Enter the new email address"
-              required #email="ngModel">
-            <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
-          </div>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" [(ngModel)]="customer.firstName" 
-            class="form-control" 
-            id="name" 
-            name="name" 
-            placeholder="Enter the new name"
-            required #name="ngModel">
-            <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+          <p>
+            Last Name: <input [(ngModel)]="customer.lastName" class="form-control" placeholder="Last Name">
+          </p>
+          <p>
+            Zip Code: <input [(ngModel)]="customer.zipCode" class="form-control" placeholder="Zip Code">
+          </p>
+
+          <p>
+            Grade Level: <input [(ngModel)]="customer.gradeLevel" class="form-control" placeholder="Grade Level">
+          </p>
+
+          <p>
+            Topic Id: <input [(ngModel)]="customer.topicId" class="form-control" placeholder="Topic Id">
+          </p>
+
+          <p>
+            Description: <input [(ngModel)]="customer.customerDescription" class="form-control" placeholder="Description">
+          </p>
         </div>
-
-        <div class="form-group">
-            <label for="lastname">Last Name</label>
-            <input type="text" [(ngModel)]="customer.lastName" 
-              class="form-control" 
-              id="lastname" 
-              name="lastname" 
-              placeholder="Enter the new last name"
-              required #lastname="ngModel">
-          <div [hidden]="!lastname.pristine" class="alert alert-danger">Last name is required</div>
+        <button (click)="save()" class="btn btn-info">Save</button>
       </div>
-
-        <div class="form-group">
-            <label for="zipcode">Zip Code</label>
-            <input type="text" [(ngModel)]="customer.zipCode" 
-            class="form-control" 
-            id="zipcode" 
-            name="zipcode" 
-            placeholder="Enter the new zip code"
-            required #zipcode="ngModel">
-        <div [hidden]="!zipcode.pristine" class="alert alert-danger">Zip Code is required</div>
-        </div>
-
-        <div class="form-group">
-            <label for="gradelevel">Grade Level</label>
-            <input type="text" [(ngModel)]="customer.gradeLevel" 
-            class="form-control" 
-            id="gradelevel" 
-            name="gradelevel" 
-            placeholder="Enter the new Grade Level"
-            required #gradelevel="ngModel">
-        <div [hidden]="!gradelevel.pristine" class="alert alert-danger">Grade Level is required</div>
-        </div>
-
-        <div class="form-group">
-            <label for="topicid">Topic Id</label>
-            <input type="text" [(ngModel)]="customer.topicId" 
-            class="form-control" 
-            id="topicid" 
-            name="topicid" 
-            placeholder="Enter the new Topic Id"
-            required #topicid="ngModel">
-        <div [hidden]="!topicid.pristine" class="alert alert-danger">Customer Description is required</div>
-        </div>
-
-        <div class="form-group">
-          <label for="customerdescription">Customer Description</label>
-          <input type="text" [(ngModel)]="customer.customerDescription" 
-          class="form-control" 
-          id="customerdescription" 
-          name="customerdescription" 
-          placeholder="Enter the new Customer Description"
-          required #customerdescription="ngModel">
-      <div [hidden]="!customerdescription.pristine" class="alert alert-danger">Customer Description is required</div>
-      </div>
-
-        <button type="submit" [disabled]="!customerForm.form.valid" 
-          class="btn btn-info">Submit</button>
-      </form>
     </div>
   </div>
 

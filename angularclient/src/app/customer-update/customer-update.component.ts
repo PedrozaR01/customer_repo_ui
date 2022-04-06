@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../service/customer.service';
 import { Customer } from '../model/customer';
@@ -14,7 +14,9 @@ to update the existing customer with the new data.
 })
 export class CustomerUpdateComponent implements OnInit {
 
-  customer!: Customer;
+  @Input() customer: Customer = {customerId: '', email: '', firstName: '', lastName: '',
+    zipCode: '', gradeLevel: '', topicId: '', customerDescription: ''}
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +26,15 @@ export class CustomerUpdateComponent implements OnInit {
     this.customer = new Customer();
    }
 
-   onSubmit(){
+   ngOnInit(): void {
+     this.getCustomer();
+  }
+
+  getCustomer(): void{
+    const id = this.route.snapshot.paramMap.get('id') || '';
+    this.customerService.get(id).subscribe(customer => this.customer = customer);
+  }
+   save(){
      this.customerService.update(this.customer.customerId, this.customer).subscribe(
        result => this.gotoCustomerList()
      );
@@ -34,7 +44,6 @@ export class CustomerUpdateComponent implements OnInit {
     this.router.navigate(['/customers']);
   }
 
-  ngOnInit(): void {
-  }
+  
 
 }
