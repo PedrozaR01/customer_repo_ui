@@ -22,11 +22,29 @@
           </p>
 
           <p>
-            Supported Topics: <input [(ngModel)]="processor.supportedTopics" class="form-control" placeholder="Supported Topics">
+            Supported Topics: <select [(ngModel)]="processor.supportedTopics" 
+            class="form-control" 
+            id="supportedtopics" 
+            name="supportedtopics" 
+            required #supportedtopics="ngModel">
+            <option value="default">-----</option>
+            <option *ngFor="let topicDrop of topicDrops">
+              {{ topicDrop.topicName }}
+            </option>
+            </select>
           </p>
 
           <p>
-            Grade Level: <input [(ngModel)]="processor.processorGradeLevel" class="form-control" placeholder="Grade Level">
+            Grade Level: <select [(ngModel)]="processor.processorGradeLevel" 
+            class="form-control" 
+            id="processorgradelevel" 
+            name="processorgradelevel" 
+            required #processorgradelevel="ngModel">
+            <option value="default">----</option>      
+            <option *ngFor="let gradeDrop of gradeDrops">
+              {{ gradeDrop.gradeLevelName }}
+            </option>
+            </select>
           </p>
         </div>
         <button (click)="save()" class="btn btn-info">Save</button>

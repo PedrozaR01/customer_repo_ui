@@ -3,7 +3,7 @@
   The ngSubmit directive calls the onSubmit method in the ts class of this component.
   The ngForm alows angular to control the whole form, and keeps track of it with the
   ngModel. The value of ngModel equals that of each processor's field.
--->
+--> 
 <div class="card my-5">
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" #processorForm="ngForm">
@@ -53,23 +53,31 @@
 
         <div class="form-group">
             <label for="supportedtopics">Supported Topics</label>
-            <input type="text" [(ngModel)]="processor.supportedTopics" 
+            <select [(ngModel)]="processor.supportedTopics" 
             class="form-control" 
             id="supportedtopics" 
             name="supportedtopics" 
-            placeholder="Enter Supported Topics"
             required #supportedtopics="ngModel">
+            <option value="default">-----</option>
+            <option *ngFor="let topicDrop of topicDrops">
+              {{ topicDrop.topicName }}
+            </option>
+            </select>
         <div [hidden]="!supportedtopics.pristine" class="alert alert-danger">A supported topic is required</div>
         </div>
 
         <div class="form-group">
           <label for="processorgradelevel">Procesor Grade Level</label>
-          <input type="text" [(ngModel)]="processor.processorGradeLevel" 
-          class="form-control" 
-          id="processorgradelevel" 
-          name="processorgradelevel" 
-          placeholder="Enter Processor Grade Level"
-          required #processorgradelevel="ngModel">
+          <select [(ngModel)]="processor.processorGradeLevel" 
+            class="form-control" 
+            id="processorgradelevel" 
+            name="processorgradelevel" 
+            required #processorgradelevel="ngModel">
+            <option value="default">----</option>      
+            <option *ngFor="let gradeDrop of gradeDrops">
+              {{ gradeDrop.gradeLevelName }}
+            </option>
+            </select>
       <div [hidden]="!processorgradelevel.pristine" class="alert alert-danger">Grade Level is required</div>
       </div>
 

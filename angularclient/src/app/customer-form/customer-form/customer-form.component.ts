@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from 'src/app/service/customer.service';
 import { Customer } from 'src/app/model/customer';
+import { GradeLevel } from 'src/app/model/grade-level';
+import { GradeLevelService } from 'src/app/service/grade-level.service';
+import { Topic } from 'src/app/model/topic';
+import { TopicService } from 'src/app/service/topic.service';
+
 /* 
 Component responsible to add new customers.
 it implements routes, the customer class as well as the service class.
@@ -18,11 +23,15 @@ Then, it returns us to the list of all customers.
 export class CustomerFormComponent implements OnInit {
 
   customer: Customer;
+  gradeDrops!: GradeLevel[];
+  topicDrops!: Topic[];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private customerService: CustomerService
+    private gradeLevelService: GradeLevelService,
+    private customerService: CustomerService, 
+    private topicService: TopicService
   ) {
     this.customer = new Customer();
    }
@@ -36,7 +45,13 @@ export class CustomerFormComponent implements OnInit {
     this.router.navigate(['/customers']);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.gradeLevelService.list().subscribe(data => {
+      this.gradeDrops = data;
+    });
+    this.topicService.list().subscribe(data =>{
+      this.topicDrops = data;
+    });
   }
 
 }

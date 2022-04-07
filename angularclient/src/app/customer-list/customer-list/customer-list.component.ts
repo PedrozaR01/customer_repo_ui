@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from 'src/app/model/customer'; 
 import { CustomerService } from 'src/app/service/customer.service';
+
+
+
 /**
  This class simply implements the get method for all customers
  the html file has a table that iterates over the customer object. 
@@ -16,6 +19,7 @@ import { CustomerService } from 'src/app/service/customer.service';
 export class CustomerListComponent implements OnInit {
 
   customers!: Customer[];
+  
 
   constructor(
     private customerService: CustomerService,
@@ -32,6 +36,7 @@ export class CustomerListComponent implements OnInit {
     this.customerService.list().subscribe(data => {
       this.customers = data;
     });
+    
   }
 
 }

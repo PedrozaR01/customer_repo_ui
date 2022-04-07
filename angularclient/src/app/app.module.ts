@@ -19,6 +19,7 @@ import { TopicFormComponent } from './topic-form/topic-form.component';
 import { GradeLevelListComponent } from './grade-level-list/grade-level-list.component';
 import { GradeLevelFormComponent } from './grade-level-form/grade-level-form.component';
 import { ProcessorUpdateComponent } from './processor-update/processor-update.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProcessorUpdateComponent } from './processor-update/processor-update.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
   ],
   providers: [
     CustomerService, 

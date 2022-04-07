@@ -20,12 +20,16 @@
           </div>
         <div class="form-group">
           <label for="topicgradelevel">Topic Grade Level</label>
-          <input type="text" [(ngModel)]="topic.topicGradeLevel" 
-            class="form-control" 
-            id="topicgradelevel" 
-            name="topicgradelevel" 
-            placeholder="Enter Topic Grade Level"
-            required #topicgradelevel="ngModel">
+          <select [(ngModel)]="topic.topicGradeLevel" 
+          class="form-control" 
+          id="topicgradelevel" 
+          name="topicgradelevel" 
+          required #topicgradelevel="ngModel">
+          <option value="default">----</option>      
+          <option *ngFor="let gradeDrop of gradeDrops">
+            {{ gradeDrop.gradeLevelName }}
+          </option>
+          </select>
             <div [hidden]="!topicgradelevel.pristine" class="alert alert-danger">Topic Grade Level is required</div>
         </div>
 

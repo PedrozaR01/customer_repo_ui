@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProcessorService } from '../service/processor-service';
 import { Processor } from '../model/processor';
+import { GradeLevel } from 'src/app/model/grade-level';
+import { GradeLevelService } from 'src/app/service/grade-level.service';
+import { Topic } from 'src/app/model/topic';
+import { TopicService } from 'src/app/service/topic.service';
 
 @Component({
   selector: 'app-processor-form',
@@ -11,11 +15,15 @@ import { Processor } from '../model/processor';
 export class ProcessorFormComponent implements OnInit {
 
   processor: Processor;
+  gradeDrops!: GradeLevel[];
+  topicDrops!: Topic[];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private processorService: ProcessorService
+    private gradeLevelService: GradeLevelService,
+    private processorService: ProcessorService,
+    private topicService: TopicService
   ) { 
     this.processor = new Processor();
   }
@@ -31,6 +39,13 @@ export class ProcessorFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.gradeLevelService.list().subscribe(data => {
+      this.gradeDrops = data;
+    });
+    this.topicService.list().subscribe(data =>{
+      this.topicDrops = data;
+    });
+  }
   }
 
-}
+

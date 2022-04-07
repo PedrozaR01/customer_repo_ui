@@ -22,11 +22,29 @@
           </p>
 
           <p>
-            Grade Level: <input [(ngModel)]="customer.gradeLevel" class="form-control" placeholder="Grade Level">
+            Grade Level: <select [(ngModel)]="customer.gradeLevel" 
+            class="form-control" 
+            id="gradelevel" 
+            name="gradelevel" 
+            required #gradelevel="ngModel">
+            <option value="default">----</option>      
+            <option *ngFor="let gradeDrop of gradeDrops">
+              {{ gradeDrop.gradeLevelName }}
+            </option>
+            </select>
           </p>
 
           <p>
-            Topic Id: <input [(ngModel)]="customer.topicId" class="form-control" placeholder="Topic Id">
+            Topic Id:  <select [(ngModel)]="customer.topicId" 
+            class="form-control" 
+            id="topicid" 
+            name="topicid" 
+            required #topicid="ngModel">
+            <option value="default">-----</option>
+            <option *ngFor="let topicDrop of topicDrops">
+              {{ topicDrop.topicId }}
+            </option>
+            </select>
           </p>
 
           <p>
